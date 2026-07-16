@@ -1,4 +1,4 @@
-import 'package:qiita_search/models/user.dart';
+import 'package:flutter_study/models/user.dart';
 
 class Article {
   // コンストラクタ

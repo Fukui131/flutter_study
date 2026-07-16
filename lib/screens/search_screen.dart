@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:qiita_search/models/article.dart';
+import 'package:flutter_study/models/article.dart';
+import 'package:flutter_study/widgets/article_container.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -35,10 +36,19 @@ class _SearchScreenState extends State<SearchScreen> {
               decoration: InputDecoration( // InputDecorationを渡す
                 hintText: '検索ワードを入力してください',
               ),
-              onSubmitted: (String value) {
-                final results = await searchQiita(value); // ← 検索処理を実行する
-                setState(() => articles = results); // 検索結果を代入
+              onSubmitted: (String value) async {
+                final results = await searchQiita(value);
+                setState(() {
+                  articles = results;
+                });
               },
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: articles
+                  .map((article) => ArticleContainer(article: article))
+                  .toList(),
             ),
           ),
         ],
