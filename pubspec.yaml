@@ -1,6 +1,6 @@
 name: flutter_study
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0+1
 
 environment:
@@ -12,6 +12,8 @@ dependencies:
   flutter_dotenv: ^6.0.1
   http: ^1.6.0
   intl: ^0.20.3
+  webview_flutter: ^4.14.1
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:
